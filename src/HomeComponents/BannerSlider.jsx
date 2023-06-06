@@ -4,7 +4,7 @@ import "react-awesome-slider/dist/styles.css";
 
 const BannerSlider = () => {
   return (
-    <div className="w-11/12 mx-auto mt-8">
+    <div className="w-full md:w-11/12 mx-auto mt-8">
       <AwesomeSlider className="h-full md:h-[100vh]">
         <div>
           <img

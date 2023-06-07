@@ -1,17 +1,68 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import lottiesignup from "../assets/23640-sign-in-or-sign-up-animation.json";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const SignUp = () => {
+
+  const { signUpUser, profileUpdate } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+
+    if (data.password === data.recheck) {
+      signUpUser(data.email, data.password).then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        profileUpdate(data.name, data.image)
+          .then(() => {
+            const newUser = {
+              name: data.name,
+              email: data.email,
+              role: data.role,
+            };
+            fetch(`${import.meta.env.VITE_api_url}/users`, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(newUser),
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User created successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+              });
+          })
+          .catch((e) => console.log(e));
+      });
+    } else {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "password didn't match",
+      });
+    }
+  };
 
   return (
     <>
@@ -136,7 +187,7 @@ const SignUp = () => {
                 <input
                   {...register("recheck", {
                     required: true,
-                    minLength: 6, 
+                    minLength: 6,
                   })}
                   type="password"
                   name="recheck"
@@ -146,8 +197,8 @@ const SignUp = () => {
                 {errors.recheck?.type === "minLength" && (
                   <p className="text-red-600">Password must be 6 characters</p>
                 )}
-                </div>
-                <div>
+              </div>
+              <div>
                 <label className="label inline-block">
                   Already have an account?
                   <Link

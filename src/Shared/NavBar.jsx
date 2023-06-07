@@ -3,25 +3,42 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-    const {user} = useContext(AuthContext)
-
+  const handleLogout = () => {
+    logOut()
+    .then(result=>{
+      const data = result;
+    })
+    .catch(error=>{
+      console.log(error.message);
+    })
+  }
 
   const navLinks = (
     <>
       <li>
-        <Link className="font-semibold text-base" to="/">Home</Link>
+        <Link className="font-semibold text-base" to="/">
+          Home
+        </Link>
       </li>
       <li>
-        <Link className="font-semibold text-base" to="/instructors">Instructors</Link>
+        <Link className="font-semibold text-base" to="/instructors">
+          Instructors
+        </Link>
       </li>
       <li>
-        <Link className="font-semibold text-base" to="/allClass">Classes</Link>
+        <Link className="font-semibold text-base" to="/allClass">
+          Classes
+        </Link>
       </li>
-      {user && 
-          <li>
-            <Link className="font-semibold text-base" to="/dashboard">Dashboard </Link>
-          </li>}
+      {user && (
+        <li>
+          <Link className="font-semibold text-base" to="/dashboard">
+            Dashboard{" "}
+          </Link>
+        </li>
+      )}
     </>
   );
 
@@ -54,14 +71,28 @@ const NavBar = () => {
         </div>
         <div className="flex md:gap-1 items-center">
           <p className="normal-case text-lg font-bold">Summer Campers</p>
-          <img src="../../public/tent (1).png" className="w-10 h-10" alt="" />
+          <img src="/tent (1).png" className="w-10 h-10" alt="" />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? <img className="w-8 h-8 cursor-pointer rounded-full" src={user?.photoUrl} alt="" /> : <Link to="/signIn"> <button className="btn btn-secondary">Login</button></Link>}
+        {user ? (
+          <>
+          <button onClick={handleLogout} className="btn btn-secondary btn-sm mr-3">Log Out</button>
+            <img
+              className="w-8 h-8 cursor-pointer rounded-full"
+              src={user?.photoUrl}
+              alt=""
+            />
+          </>
+        ) : (
+          <Link to="/signIn">
+            {" "}
+            <button className="btn btn-secondary">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );

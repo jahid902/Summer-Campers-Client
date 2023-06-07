@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../Shared/Title";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AllClasses = () => {
   const [allClass, setAllClass] = useState([]);
+
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_api_url}/allClass`)
       .then((res) => res.json())
       .then((data) => {
         setAllClass(data);
-        console.log(data);
       });
   }, []);
 
@@ -26,17 +28,38 @@ const AllClasses = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 w-full md:w-11/12 mx-auto">
         {allClass.map((sub) => (
-          <div className="card w-96 bg-base-100 shadow-xl image-full">
+          <div
+            className={`card w-96 bg-base-100 shadow-xl image-full ${
+              sub?.availableSeats === 0 ? "p-4 bg-red-600" : ""
+            }`}
+          >
             <figure>
               <img src={sub?.image} alt="classes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Class Name : {sub?.name}</h2>
               <h2 className="card-title">Instructor : {sub?.instructor}</h2>
-              <p>Course Fee : {sub?.price}$</p>
+              <p>Course Fee : {sub?.price} $</p>
               <p>Available Seats : {sub?.availableSeats}</p>
+              {!user && (
+                <p className="text-xl font-semibold">
+                  Sign In to enroll the class.
+                </p>
+              )}
+              {sub?.availableSeats === 0 && (
+                <p className="text-xl text-red-600 font-semibold">
+                  Enrollment full, no seats available.
+                </p>
+              )}
               <div className="card-actions justify-start">
-                <button className="btn btn-outline btn-secondary">Enroll Now</button>
+                {sub?.availableSeats !== 0 && (
+                  <button
+                    disabled={!user}
+                    className="btn btn-outline btn-secondary"
+                  >
+                    Enroll Now
+                  </button>
+                )}
               </div>
             </div>
           </div>

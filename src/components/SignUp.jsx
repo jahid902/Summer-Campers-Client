@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
+import SocialLogin from "../Shared/SocialLogin";
 
 const SignUp = () => {
   const { signUpUser, profileUpdate } = useContext(AuthContext);
@@ -218,6 +219,7 @@ const SignUp = () => {
                   Sign Up
                 </button>
               </div>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>

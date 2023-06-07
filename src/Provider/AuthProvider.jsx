@@ -11,7 +11,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     const auth = getAuth(app);
-    // const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
 
 
     const signUpUser = (email,password) => {
@@ -28,10 +28,10 @@ const AuthProvider = ({children}) => {
     //     return signOut(auth);
     // }
 
-    // const googleLogin = () =>{
-    //     setLoading(true);
-    //     return signInWithPopup(auth, googleProvider);
-    // }
+    const googleLogin = () =>{
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    }
 
     const profileUpdate = (name, photo) => {
         return updateProfile(auth.currentUser, {
@@ -55,7 +55,7 @@ const AuthProvider = ({children}) => {
             // loading,
             signUpUser,
             signInUser,
-            // googleLogin,
+            googleLogin,
             profileUpdate,
             // logOut,
             

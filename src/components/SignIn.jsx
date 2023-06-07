@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import lottieSignIn from "../assets/117764-sign-up.json";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin";
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
@@ -110,6 +111,7 @@ const SignIn = () => {
                   Sign In
                 </button>
               </div>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>

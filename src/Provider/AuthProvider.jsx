@@ -24,9 +24,9 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    // const logOut = () => {
-    //     return signOut(auth);
-    // }
+    const logOut = () => {
+        return signOut(auth);
+    }
 
     const googleLogin = () =>{
         setLoading(true);
@@ -39,25 +39,25 @@ const AuthProvider = ({children}) => {
         });
     }
 
-    // useEffect(()=>{
-    //     const unSubscribe = onAuthStateChanged(auth, currentUser =>{
-    //             setUser(currentUser);
-    //             setLoading(false);
-    //     });
-    //     return () =>{
-    //        return unSubscribe();
-    //     }
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth, currentUser =>{
+                setUser(currentUser);
+                setLoading(false);
+        });
+        return () =>{
+           return unSubscribe();
+        }
 
-    // },[])
+    },[])
 
     const authInfo = {
             user,
-            // loading,
+            loading,
             signUpUser,
             signInUser,
             googleLogin,
             profileUpdate,
-            // logOut,
+            logOut,
             
             
             

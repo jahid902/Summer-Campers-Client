@@ -16,7 +16,7 @@ const NavBar = () => {
         <Link className="font-semibold text-base" to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link className="font-semibold text-base" to="/classes">Classes</Link>
+        <Link className="font-semibold text-base" to="/allClass">Classes</Link>
       </li>
       {user && 
           <li>
@@ -61,7 +61,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? <p>user available</p> : <Link to="/signIn"> <button className="btn btn-secondary">Login</button></Link>}
+        {user ? <img className="w-8 h-8 cursor-pointer rounded-full" src={user?.photoUrl} alt="" /> : <Link to="/signIn"> <button className="btn btn-secondary">Login</button></Link>}
       </div>
     </div>
   );

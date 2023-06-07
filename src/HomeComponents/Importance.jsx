@@ -9,19 +9,21 @@ AOS.init();
 const Importance = () => {
   return (
     <div className="mt-28 md:mt-40">
+        {/* title component */}
       <Title
-        title="Why summer camps in summer"
+        title="Why summer camps in summer ?"
         text="Summer camps are an absolute blast for kids! They're like stepping into a magical world filled with adventure, friends, and endless fun."
         subText=" Imagine spending your days exploring the great outdoors, trying exciting activities like Football, Hockey, and Archery."
         colorText="Are You Ready Campers?"
       ></Title>
+
+        {/* lottie anime and AOS */}
       <div className="flex flex-col md:flex-row w-11/12 mx-auto gap-5 ">
         <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200" className="w-full md:w-1/2">
           <Lottie animationData={lottieCamping} loop={true}></Lottie>
         </div>
-        {/* lottie end */}
 
-        {/* accordian start */}
+        {/* Accordion and AOS */}
         <div 
         data-aos="fade-left" data-aos-duration="2000" data-aos-delay="200"
         className="join join-vertical w-full md:w-1/2 mt-6">

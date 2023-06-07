@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer p-10 bg-pink-200  text-black mt-12">
       <div>
-        <img className="w-14 h-14" src="../../public/tent (1).png" alt="" />
+        <img className="w-14 h-14" src="/tent (1).png" alt="" />
         <p className="font-bold">
           Summer Campers
           <br />

@@ -7,7 +7,7 @@ const Title = ({title, text, subText, colorText}) => {
     return (
         <div data-aos="fade-down" data-aos-duration="1000" data-aos-delay="50" className="text-center space-y-3 mb-4 md:mb-12">
         <h1 className="text-5xl font-bold text-pink-400">
-          {title} ?
+          {title} 
         </h1>
         <p className="text-lg ">
           {text} <br /> {subText} <br />

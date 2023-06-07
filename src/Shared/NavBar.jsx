@@ -61,7 +61,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? <p>user available</p> : <Link to="/signIn"> <button className="btn btn-outline btn-secondary">Login</button></Link>}
+        {user ? <p>user available</p> : <Link to="/signIn"> <button className="btn btn-secondary">Login</button></Link>}
       </div>
     </div>
   );

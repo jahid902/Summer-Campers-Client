@@ -13,19 +13,21 @@ const Classes = () => {
     fetch(`${import.meta.env.VITE_api_url}/classes`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         setClasses(data);
       });
   }, []);
 
   return (
     <div className="mt-24 md:mt-36">
+      <div className="w-11/12 mx-auto">
       <Title
         title="Popular classes this Summer !!"
         text="Calling all young explorers and adventure enthusiasts! Get ready to embark on an unforgettable journey in the great outdoors this summer."
         subText="Our summer camping classes are here, and they're packed with thrilling activities, new friendships, and amazing experiences."
         colorText="Enroll Now Campers !! "
       ></Title>
+      </div>
 
       <Swiper
         style={{ width: "90%" }}
@@ -53,8 +55,8 @@ const Classes = () => {
       >
         {classes.map((sub) => (
           <SwiperSlide>
-            <img className="h-[50vh]" src={sub?.image} alt="" />
-            <Link>
+            <img className="h-[50vh] rounded-md" src={sub?.image} alt="" />
+            <Link to="/allClass">
               <button className="btn btn-outline btn-secondary flex mx-auto mt-4">
                 {sub.name}
               </button>

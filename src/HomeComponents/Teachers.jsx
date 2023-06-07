@@ -11,7 +11,6 @@ const Teachers = () => {
     fetch(`${import.meta.env.VITE_api_url}/teachers`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTeachers(data);
       });
   }, []);

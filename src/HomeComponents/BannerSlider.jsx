@@ -8,38 +8,29 @@ const BannerSlider = () => {
       <AwesomeSlider className="h-full md:h-[100vh]">
         <div>
           <img
-            src="../../public/full-shot-kids-playing-kickball-field.jpg"
+            src="/pretty-young-curly-boy-casual-clothes-white-wall-confident-cool-with-sport-bat-caucasian-male-preschooler-with-bright-facial-emotions-childhood-expression-having-fun.jpg"
             alt=""
           />
         </div>
 
-        <div>
-          <img
-            src="../../public/field-hockey-player-equipment-grass.jpg"
-            alt=""
-          />
+        <div className="md:h-[100vh]">
+          <img src="/kids-football-equipment-getting-ready-match.jpg" alt="" />
         </div>
 
         <div>
+          <img src="/full-shot-kids-playing-kickball-field.jpg" alt="" />
+        </div>
+        <div className="md:h-[100vh]">
+          <img src="/kids-shaking-hands-before-game.jpg" alt="" />
+        </div>
+        <div>
           <img
-            src="../../public/kids-football-equipment-getting-ready-match.jpg"
+            src="/two-multiracional-brothers-playing-basketball-court-near-park.jpg"
             alt=""
           />
         </div>
         <div>
-          <img src="../../public/kids-shaking-hands-before-game.jpg" alt="" />
-        </div>
-        <div>
-          <img
-            src="../../public/two-multiracional-brothers-playing-basketball-court-near-park.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            src="../../public/pretty-young-curly-boy-casual-clothes-white-wall-confident-cool-with-sport-bat-caucasian-male-preschooler-with-bright-facial-emotions-childhood-expression-having-fun.jpg"
-            alt=""
-          />
+          <img src="/field-hockey-player-equipment-grass.jpg" alt="" />
         </div>
       </AwesomeSlider>
     </div>

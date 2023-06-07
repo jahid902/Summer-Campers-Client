@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import BannerSlider from "../HomeComponents/BannerSlider";
+import Importance from "../HomeComponents/Importance";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
         <title>Summer Campers || Home</title>
       </Helmet>
       <BannerSlider></BannerSlider>
+      <Importance></Importance>
     </>
   );
 };

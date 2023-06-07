@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import lottiesignup from "../assets/23640-sign-in-or-sign-up-animation.json";
+import lottieSignUp from "../assets/106364-login.json"
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
-
   const { signUpUser, profileUpdate } = useContext(AuthContext);
 
   const {
@@ -39,8 +39,8 @@ const SignUp = () => {
               },
               body: JSON.stringify(newUser),
             })
-              .then(res => res.json())
-              .then(data => {
+              .then((res) => res.json())
+              .then((data) => {
                 if (data) {
                   reset();
                   Swal.fire({
@@ -66,12 +66,16 @@ const SignUp = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Summer Campers || SignUp</title>
+      </Helmet>
+
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row gap-6 md:gap-16">
           <div className="text-center md:min-h-screen w-full md:w-1/2 lg:text-left">
             <Lottie
-              className="h-full w-96"
-              animationData={lottiesignup}
+              className="h-full "
+              animationData={lottieSignUp}
               loop={true}
             ></Lottie>
           </div>
@@ -210,7 +214,7 @@ const SignUp = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-outline btn-secondary">
+                <button type="submit" className="btn btn-secondary">
                   Sign Up
                 </button>
               </div>

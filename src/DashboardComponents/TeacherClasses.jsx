@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "../Shared/Title";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const TeacherClasses = () => {
   const { user } = useContext(AuthContext);
@@ -34,12 +35,12 @@ const TeacherClasses = () => {
               <th>Enrolled</th>
               <th>Price</th>
               <th>Admin Feedback</th>
-              <th>Edit</th>
+              <th>Update</th>
             </tr>
           </thead>
           <tbody>
             {addedClass.map((singleClass,i)=>(
-                <tr>
+                <tr key={singleClass?._id}>
                 <th>{i+1}</th>
                 <td>{singleClass?.name}</td>
                 <td>{singleClass?.duration}</td>
@@ -47,7 +48,7 @@ const TeacherClasses = () => {
                 <td>{singleClass?.enrolled}</td>
                 <td>{singleClass?.price}</td>
                 <td>{singleClass?.feedback ? singleClass?.feedback : "In Review"}</td>
-                <button className="btn btn-sm mt-1 btn-secondary btn-outline">Update</button>
+                <td><Link to={`/dashboard/updateClass/${singleClass?._id}`}><button className="btn btn-sm mt-1 btn-secondary btn-outline">Edit</button></Link></td>
               </tr>
             ))}
           </tbody>

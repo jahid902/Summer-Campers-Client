@@ -33,6 +33,9 @@ const Dashboard = () => {
               <li>
                 <Link to="/dashboard/addClass">Add Class</Link>
               </li>
+              <li>
+                <Link to="/dashboard/updateClass/:id">Update Class</Link>
+              </li>
             </>
           }  
           { role === "student" &&

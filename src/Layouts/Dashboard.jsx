@@ -28,7 +28,7 @@ const Dashboard = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/dashboard/instructorHome">teacher</Link>
+                <Link to="/dashboard/allClasses">All Classes</Link>
               </li>
               <li>
                 <Link to="/dashboard/addClass">Add Class</Link>

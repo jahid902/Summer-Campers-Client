@@ -32,7 +32,7 @@ const SignIn = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate(from, {replace:true});
+      navigate('/');
     });
   };
 

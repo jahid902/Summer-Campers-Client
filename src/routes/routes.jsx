@@ -8,8 +8,9 @@ import AllClasses from "../components/AllClasses";
 import AllTeachers from "../components/AllTeachers";
 import Dashboard from "../Layouts/Dashboard";
 import StudentHome from "../DashboardComponents/StudentHome";
-import InstructorHome from "../DashboardComponents/InstructorHome";
 import AddClass from "../DashboardComponents/AddClass";
+import PrivateRoute from "../SecureRoute/PrivateRoute";
+import TeacherClasses from "../DashboardComponents/TeacherClasses";
 
 const router = createBrowserRouter([
   {
@@ -44,15 +45,19 @@ const router = createBrowserRouter([
 
   {
     path : 'dashboard',
-    element : <Dashboard></Dashboard>,
+    element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children : [
+
+      // student routes
       {
         path: 'studentHome',
         element: <StudentHome></StudentHome>
       },
+
+      // instructor routes 
       {
-        path: 'instructorHome',
-        element: <InstructorHome></InstructorHome>
+        path: 'allClasses',
+        element: <TeacherClasses></TeacherClasses>
       },
       {
         path: 'addClass',

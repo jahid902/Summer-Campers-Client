@@ -6,7 +6,6 @@ import { AuthContext } from "../Provider/AuthProvider";
 const NavBar = () => {
   const { user,role, logOut } = useContext(AuthContext);
   const [show, setShow] = useState(false);
-  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -37,16 +36,12 @@ const NavBar = () => {
       </li>
 
       {/* todo user && true the access to dashboard */}
-      {user || role === 'instructor' ? 
+      { user &&
         <li>
-          <Link className="font-semibold text-base" to="/dashboard/addClass">
+          <Link className="font-semibold text-base" to="/dashboard">
             Dashboard
           </Link>
-        </li> : <li>
-          <Link className="font-semibold text-base" to="/dashboard/studentHome">
-            Dashboard
-          </Link>
-        </li>
+        </li> 
       }
     </>
   );

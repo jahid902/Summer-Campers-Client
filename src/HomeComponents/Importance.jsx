@@ -2,31 +2,52 @@ import React from "react";
 import Title from "../Shared/Title";
 import Lottie from "lottie-react";
 import lottieCamping from "../assets/135393-camp-guy.json";
+import { keyframes } from "@emotion/react";
+import { Reveal } from "react-awesome-reveal";
 import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init();
 
+// React awesome reveal animation
+const customAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(-200px, -100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
+
 const Importance = () => {
   return (
     <div className="mt-28 md:mt-40">
-        {/* title component */}
+      {/* title component */}
       <Title
         title="Why summer camps in summer ?"
         text="Summer camps are an absolute blast for kids! They're like stepping into a magical world filled with adventure, friends, and endless fun."
         subText=" Imagine spending your days exploring the great outdoors, trying exciting activities like Football, Hockey, and Archery."
         colorText="Are You Ready Campers?"
       ></Title>
+      
 
-        {/* lottie anime and AOS */}
+      {/* React awesome reveal animation used*/}
       <div className="flex flex-col md:flex-row w-11/12 mx-auto gap-5 ">
-        <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200" className="w-full md:w-1/2">
-          <Lottie animationData={lottieCamping} loop={true}></Lottie>
+        <div className="w-full md:w-1/2">
+          <Reveal keyframes={customAnimation}>
+            <Lottie animationData={lottieCamping} loop={true}></Lottie>
+          </Reveal>
         </div>
 
         {/* Accordion and AOS */}
-        <div 
-        data-aos="fade-left" data-aos-duration="2000" data-aos-delay="200"
-        className="join join-vertical w-full md:w-1/2 mt-6">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="2000"
+          data-aos-delay="200"
+          className="join join-vertical w-full md:w-1/2 mt-6"
+        >
           <div className="collapse collapse-arrow join-item border border-base-300">
             <input type="radio" name="my-accordion-4" checked="checked" />
             <div className="collapse-title text-xl font-medium">

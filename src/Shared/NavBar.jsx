@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
 
   const handleLogout = () => {
     logOut()
@@ -81,11 +82,14 @@ const NavBar = () => {
         {user ? (
           <>
           <button onClick={handleLogout} className="btn btn-secondary btn-sm mr-3">Log Out</button>
+            <div onMouseEnter={()=>setShow(!show)} className="flex flex-col items-center">
             <img
               className="w-8 h-8 cursor-pointer rounded-full"
               src={user?.photoUrl}
               alt=""
             />
+            {show && <span className="text-xs">{user.email}</span>}
+            </div>
           </>
         ) : (
           <Link to="/signIn">

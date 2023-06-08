@@ -54,7 +54,7 @@ const Classes = () => {
         className="mySwiper"
       >
         {classes.map((sub) => (
-          <SwiperSlide>
+          <SwiperSlide key={sub._id}>
             <img className="h-[50vh] rounded-md" src={sub?.image} alt="" />
             <Link to="/allClass">
               <button className="btn btn-outline btn-secondary flex mx-auto mt-4">

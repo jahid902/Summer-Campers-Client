@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import Title from "../Shared/Title";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 AOS.init();
 
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
 
+  //used axios to fetch data 
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_api_url}/teachers`)
-      .then((res) => res.json())
-      .then((data) => {
-        setTeachers(data);
-      });
+    axios.get(`${import.meta.env.VITE_api_url}/teachers`).then((data) => {
+      setTeachers(data.data);
+    });
   }, []);
 
   return (
@@ -25,8 +26,11 @@ const Teachers = () => {
           colorText="Excited To Meet Them in Person? Here Are some Teachers With Most Student's."
         ></Title>
         <div
-        data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200"
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-delay="200"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16"
+        >
           {teachers.map((teacher) => (
             <div
               key={teacher?._id}
@@ -57,7 +61,8 @@ const Teachers = () => {
                 <p className="font-bold text-md">Position : {teacher?.role}</p>
                 <br />
                 <p className="font-bold text-md">
-                  Rating: {teacher?.rating} <span className="text-yellow-500">Stars</span>
+                  Rating: {teacher?.rating}{" "}
+                  <span className="text-yellow-500">Stars</span>
                 </p>
               </div>
             </div>

@@ -6,6 +6,10 @@ import SignUp from "../components/SignUp";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import AllClasses from "../components/AllClasses";
 import AllTeachers from "../components/AllTeachers";
+import Dashboard from "../Layouts/Dashboard";
+import StudentHome from "../DashboardComponents/StudentHome";
+import InstructorHome from "../DashboardComponents/InstructorHome";
+import AddClass from "../DashboardComponents/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +41,25 @@ const router = createBrowserRouter([
       }
     ],
   },
+
+  {
+    path : 'dashboard',
+    element : <Dashboard></Dashboard>,
+    children : [
+      {
+        path: 'studentHome',
+        element: <StudentHome></StudentHome>
+      },
+      {
+        path: 'instructorHome',
+        element: <InstructorHome></InstructorHome>
+      },
+      {
+        path: 'addClass',
+        element: <AddClass></AddClass>
+      }
+    ]
+  }
 ]);
 
 

@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
+
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user,role, logOut } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -33,13 +35,19 @@ const NavBar = () => {
           Classes
         </Link>
       </li>
-      {user && (
+
+      {/* todo user && true the access to dashboard */}
+      {user || role === 'instructor' ? 
         <li>
-          <Link className="font-semibold text-base" to="/dashboard">
-            Dashboard{" "}
+          <Link className="font-semibold text-base" to="/dashboard/addClass">
+            Dashboard
+          </Link>
+        </li> : <li>
+          <Link className="font-semibold text-base" to="/dashboard/studentHome">
+            Dashboard
           </Link>
         </li>
-      )}
+      }
     </>
   );
 

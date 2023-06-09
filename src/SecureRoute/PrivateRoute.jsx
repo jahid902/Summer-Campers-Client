@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
 
     if(loading){
         return <div className='flex justify-center mt-20'>
-            <progress className="progress progress-warning w-96">Loading !!</progress>
+            <progress className="progress progress-secondary w-96">Loading !!</progress>
         </div>
     }
 

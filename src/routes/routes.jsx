@@ -7,11 +7,11 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import AllClasses from "../components/AllClasses";
 import AllTeachers from "../components/AllTeachers";
 import Dashboard from "../Layouts/Dashboard";
-import StudentHome from "../DashboardComponents/StudentHome";
 import AddClass from "../DashboardComponents/AddClass";
 import PrivateRoute from "../SecureRoute/PrivateRoute";
 import TeacherClasses from "../DashboardComponents/TeacherClasses";
 import UpdateClass from "../DashboardComponents/UpdateClass";
+import StudentClasses from "../DashboardComponents/StudentClasses";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +51,8 @@ const router = createBrowserRouter([
 
       // student routes
       {
-        path: 'studentHome',
-        element: <StudentHome></StudentHome>
+        path: 'studentClasses',
+        element: <StudentClasses></StudentClasses>
       },
 
       // instructor routes 

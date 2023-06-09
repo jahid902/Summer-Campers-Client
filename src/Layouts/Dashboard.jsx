@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaHome, FaBook, FaBookMedical, FaBookOpen } from 'react-icons/fa';
+import { HiUserGroup} from 'react-icons/Hi';
+
 
 const Dashboard = () => {
-  const { user, role } = useContext(AuthContext);
+  const { role } = useContext(AuthContext);
   
 
   return (
@@ -25,36 +28,36 @@ const Dashboard = () => {
           {role === "instructor" && 
             <>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/"><FaHome size={24}></FaHome>Home</Link>
               </li>
               <li>
-                <Link to="/dashboard/allClasses">All Classes</Link>
+                <Link to="/dashboard/allClasses"><FaBook size={20}></FaBook>All Classes</Link>
               </li>
               <li>
-                <Link to="/dashboard/addClass">Add Class</Link>
+                <Link to="/dashboard/addClass"><FaBookMedical size={20}></FaBookMedical>Add Class</Link>
               </li>
               <li>
-                <Link to="/dashboard/updateClass/:id">Update Class</Link>
+                <Link to="/dashboard/updateClass/:id"><FaBookOpen size={20}></FaBookOpen>Update Class</Link>
               </li>
             </>
           }  
           { role === "student" &&
             <>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/"><FaHome size={24}></FaHome>Home</Link>
             </li>
             <li>
-              <Link to="/dashboard/studentClasses">Student Classes</Link>
+              <Link to="/dashboard/studentClasses"><HiUserGroup size={24}></HiUserGroup>Student Classes</Link>
             </li>
             </>
           }
           { role === "admin" &&
             <>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/"><FaHome size={24}></FaHome>Home</Link>
             </li>
             <li>
-              <Link to="/dashboard/allUsers">All User's</Link>
+              <Link to="/dashboard/allUsers"><HiUserGroup size={24}></HiUserGroup>All User's</Link>
             </li>
             </>
           }

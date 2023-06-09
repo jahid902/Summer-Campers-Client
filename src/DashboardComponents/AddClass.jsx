@@ -79,7 +79,7 @@ const AddClass = () => {
             <div className="form-control w-1/2">
               <label className="label">
                 <span className="label-text text-lg font-bold text-pink-700">
-                  Class name
+                  Course name
                 </span>
               </label>
               <input
@@ -94,7 +94,7 @@ const AddClass = () => {
             <div className="form-control w-1/2">
               <label className="label">
                 <span className="label-text text-lg font-bold text-pink-700">
-                  Class Image
+                  Course Image
                 </span>
               </label>
               <input
@@ -179,7 +179,8 @@ const AddClass = () => {
                 type="number"
                 name="enrolled"
                 placeholder="Enrolled"
-                required
+                defaultValue="0"
+                disabled
                 className="input input-bordered"
               />
             </div>

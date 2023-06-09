@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import avatar from "../../public/user (1).png"
 
 
 const NavBar = () => {
@@ -87,8 +88,8 @@ const NavBar = () => {
           <button onClick={handleLogout} className="btn btn-secondary btn-sm mr-3">Log Out</button>
             <div onMouseEnter={()=>setShow(!show)} className="flex flex-col items-center">
             <img
-              className="w-8 h-8 cursor-pointer rounded-full"
-              src={user?.photoUrl}
+              className="w-10 h-10 cursor-pointer rounded-full"
+              src={user && user?.photoUrl ? user?.photoUrl : avatar}
               alt=""
             />
             {show && <span className="text-xs">{user.email}</span>}

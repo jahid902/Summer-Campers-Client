@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import lottieSignUp from "../assets/106364-login.json"
 import { useForm } from "react-hook-form";
@@ -9,7 +9,8 @@ import { Helmet } from "react-helmet";
 import SocialLogin from "../Shared/SocialLogin";
 
 const SignUp = () => {
-  const { signUpUser, profileUpdate } = useContext(AuthContext);
+  const { signUpUser, profileUpdate, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -52,6 +53,14 @@ const SignUp = () => {
                     timer: 1500,
                   });
                 }
+                logOut()
+                .then(result=>{
+                  const data = result;
+                })
+                .catch(error=>{
+                  console.log(error.message);
+                })
+                navigate('/signIn')
               });
           })
           .catch((e) => console.log(e));
@@ -128,7 +137,6 @@ const SignUp = () => {
                 </label>
                 <select {...register("role")}>
                   <option value="student">Student</option>
-                  <option value="instructor">Instructor</option>
                 </select>
                 {errors.role && (
                   <span className="text-red-600">Role is required</span>

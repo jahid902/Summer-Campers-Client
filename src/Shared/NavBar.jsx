@@ -7,6 +7,7 @@ import avatar from "../../public/user (1).png"
 const NavBar = () => {
   const { user,role, logOut } = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  const [theme,setTheme] = useState(true);
 
   const handleLogout = () => {
     logOut()
@@ -16,6 +17,11 @@ const NavBar = () => {
     .catch(error=>{
       console.log(error.message);
     })
+  }
+
+
+  const handleToggle = () => {
+    document.body.attributes[0].value = theme ? 'dark' : 'light';
   }
 
   const navLinks = (
@@ -77,6 +83,7 @@ const NavBar = () => {
         <div className="flex md:gap-1 items-center">
           <p className="normal-case text-lg font-bold">Summer Campers</p>
           <img src="/tent (1).png" className="w-10 h-10" alt="" />
+          <input onClick={()=>handleToggle(setTheme(!theme))} type="checkbox" className="toggle toggle-sm ml-2"  />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -88,6 +95,7 @@ const NavBar = () => {
           <button onClick={handleLogout} className="btn btn-secondary btn-sm mr-3">Log Out</button>
             <div onMouseEnter={()=>setShow(!show)} className="flex flex-col items-center">
             <img
+              referrerPolicy="no-referrer"
               className="w-10 h-10 cursor-pointer rounded-full"
               src={user && user?.photoUrl ? user?.photoUrl : avatar}
               alt=""

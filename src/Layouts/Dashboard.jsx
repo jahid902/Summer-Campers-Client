@@ -48,6 +48,16 @@ const Dashboard = () => {
             </li>
             </>
           }
+          { role === "admin" &&
+            <>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/allUsers">All User's</Link>
+            </li>
+            </>
+          }
         </ul>
       </div>
     </div>

@@ -12,6 +12,7 @@ import PrivateRoute from "../SecureRoute/PrivateRoute";
 import TeacherClasses from "../DashboardComponents/TeacherClasses";
 import UpdateClass from "../DashboardComponents/UpdateClass";
 import StudentClasses from "../DashboardComponents/StudentClasses";
+import AllUsers from "../DashboardComponents/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
       {
         path: 'studentClasses',
         element: <StudentClasses></StudentClasses>
+      },
+
+      // admin routes
+      {
+        path:'allUsers',
+        element: <AllUsers></AllUsers>
       },
 
       // instructor routes 

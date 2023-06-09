@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "../Shared/Title";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AllClasses = () => {
   const [allClass, setAllClass] = useState([]);
-
-  const { user } = useContext(AuthContext);
+  const [show, setShow] = useState(true);
+  const { user,role } = useContext(AuthContext);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_api_url}/allClass`)
@@ -14,6 +15,46 @@ const AllClasses = () => {
         setAllClass(data);
       });
   }, []);
+
+
+  const handleSave = (sub) => {
+    
+    const updatedClass = {
+      name : sub?.name,
+      instructor: sub?.instructor,
+      price : sub?.price,
+      availableSeats : sub?.availableSeats,
+      enrolled : sub?.enrolled,
+      duration : sub?.duration,
+      email : user.email
+    }
+
+    fetch(`${import.meta.env.VITE_api_url}/selectedClass`,{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body : JSON.stringify(updatedClass)
+    })
+    .then(res=>res.json())
+    .then(data=> {
+      if(data.insertedId){
+        Swal.fire(
+          `${sub.name} is Booked!!`,
+          "Pay now for enrollment.",
+          'success'
+        )
+      }
+    })
+    .catch(err =>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      })
+    })
+  }
+
 
   return (
     <>
@@ -29,6 +70,7 @@ const AllClasses = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 w-full md:w-11/12 mx-auto">
         {allClass.map((sub) => (
           <div
+          key={sub._id}
             className={`card w-96 bg-base-100 shadow-xl image-full ${
               sub?.availableSeats === 0 ? "p-4 bg-red-600" : ""
             }`}
@@ -52,9 +94,10 @@ const AllClasses = () => {
                 </p>
               )}
               <div className="card-actions justify-start">
-                {sub?.availableSeats !== 0 && (
+                {sub?.availableSeats !== 0 &&  (
                   <button
-                    disabled={!user}
+                  onClick={()=> handleSave(sub)}
+                    disabled={!user || role === 'instructor' || role === 'admin'}
                     className="btn btn-outline btn-secondary"
                   >
                     Enroll Now

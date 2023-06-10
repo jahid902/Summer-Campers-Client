@@ -73,7 +73,7 @@ const AllClasses = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 w-full md:w-11/12 mx-auto">
         {allClass.map((sub) => (
-          <div
+          sub?.status == 'approved' && <div
           key={sub._id}
             className={`card w-96 bg-base-100 shadow-xl image-full ${
               sub?.availableSeats === 0 ? "p-4 bg-red-600" : ""

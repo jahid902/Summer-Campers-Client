@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Title from "../Shared/Title";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AllClasses = () => {
   const [allClass, setAllClass] = useState([]);
@@ -58,6 +59,9 @@ const AllClasses = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Summer Campers || All Classes</title>
+    </Helmet>
       <div className="w-full md:w-11/12 md:mx-auto my-8">
         <Title
           title="All of the classes we provide"

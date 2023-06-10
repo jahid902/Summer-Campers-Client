@@ -13,6 +13,7 @@ import TeacherClasses from "../DashboardComponents/TeacherClasses";
 import UpdateClass from "../DashboardComponents/UpdateClass";
 import StudentClasses from "../DashboardComponents/StudentClasses";
 import AllUsers from "../DashboardComponents/AllUsers";
+import Payment from "../DashboardComponents/Payment";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'studentClasses',
         element: <StudentClasses></StudentClasses>
+      },
+      {
+        path: 'payment/:id',
+        element: <Payment></Payment>
       },
 
       // admin routes

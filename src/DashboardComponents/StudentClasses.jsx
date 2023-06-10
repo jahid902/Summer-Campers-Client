@@ -81,7 +81,7 @@ const StudentClasses = () => {
                 <td>{singleClass?.enrolled}</td>
                 <td>{singleClass?.availableSeats}</td>
                 <td><button onClick={()=>handleDelete(singleClass?._id)} className="btn btn-outline btn-secondary btn-sm">Delete</button></td>
-               <td><button className="btn btn-outline btn-secondary btn-sm">Pay</button></td>
+               <td><Link to={`/dashboard/payment/${singleClass?._id}`}><button className="btn btn-outline btn-secondary btn-sm">Pay</button></Link></td>
               </tr>
             ))}
           </tbody>

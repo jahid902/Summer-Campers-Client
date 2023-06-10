@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Title from "../Shared/Title";
+import { Helmet } from "react-helmet";
 
 const AllTeachers = () => {
   const [teachers, setTeachers] = useState([]);
@@ -15,6 +16,9 @@ const AllTeachers = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Summer Campers || Instructors</title>
+    </Helmet>
       <div className="w-full md:w-11/12 md:mx-auto my-8">
         <Title
           title="All of the Instructors we Have"

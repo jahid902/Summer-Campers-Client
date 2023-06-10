@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaHome, FaBook, FaBookMedical, FaBookOpen } from 'react-icons/fa';
 import { HiUserGroup} from 'react-icons/Hi';
+import { Helmet } from "react-helmet";
 
 
 const Dashboard = () => {
@@ -10,6 +11,10 @@ const Dashboard = () => {
   
 
   return (
+    <>
+    <Helmet>
+      <title>Summer Campers || Dashboard</title>
+    </Helmet>
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col p-4">
@@ -64,6 +69,7 @@ const Dashboard = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 

@@ -19,6 +19,7 @@ const Teachers = () => {
 
   return (
     <>
+      
       <div className="mt-20 md:mt-36 w-11/12 mx-auto">
         <Title
           title="Our Best Teachers "

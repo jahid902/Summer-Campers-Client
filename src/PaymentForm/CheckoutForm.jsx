@@ -110,7 +110,6 @@ const CheckoutForm = ({classInfo}) => {
                         showConfirmButton: false,
                         timer: 1500
                       })
-                    //   todo add navigate
                     navigate('/dashboard/enrolled') 
                 }
               })

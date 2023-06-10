@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaHome, FaBook, FaBookMedical, FaBookOpen } from 'react-icons/fa';
+import { FaHome, FaBook, FaBookMedical, FaBookOpen, FaDoorOpen, FaInfoCircle } from 'react-icons/fa';
 import { HiUserGroup} from 'react-icons/Hi';
 import { Helmet } from "react-helmet";
 
@@ -55,10 +55,10 @@ const Dashboard = () => {
               <Link to="/dashboard/studentClasses"><HiUserGroup size={24}></HiUserGroup>Student Classes</Link>
             </li>
             <li>
-              <Link to="/dashboard/enrolled"><HiUserGroup size={24}></HiUserGroup>Enrolled Classes</Link>
+              <Link to="/dashboard/enrolled"><FaDoorOpen size={24}></FaDoorOpen>Enrolled Classes</Link>
             </li>
             <li>
-              <Link to="/dashboard/paymentHistory"><HiUserGroup size={24}></HiUserGroup>Payment Info</Link>
+              <Link to="/dashboard/paymentHistory"><FaInfoCircle size={20}></FaInfoCircle>Payment Info</Link>
             </li>
             </>
           }

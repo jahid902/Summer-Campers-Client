@@ -2,6 +2,8 @@ import React from "react";
 import Title from "../Shared/Title";
 import { useState } from "react";
 import { useEffect } from "react";
+import { GiCancel} from 'react-icons/Gi';
+import { FcCheckmark} from 'react-icons/Fc';
 
 const AllCourses = () => {
 
@@ -15,14 +17,22 @@ const AllCourses = () => {
           });
       }, []);
 
+      const handleApprove = (id) => {
+            console.log(id);
+            // todo approve
+      }
 
+      const handleDelete = (id) => {
+        console.log(id);
+        // todo delete
+      }
 
   return (
     <>
       <div className="w-11/12 mx-auto my-2 md:my-4">
         <Title
           title="Hey There Admin All Courses Are Here!"
-          text="Here you can see approve button for pending classes, you can deny to simply remove a class."
+          text="Here you can see approve button for pending courses, you can deny to simply remove a class."
           subText=""
           colorText=""
         ></Title>
@@ -33,15 +43,15 @@ const AllCourses = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Class Image</th>
-              <th>Class Name</th>
-              <th>Instructor</th>
+              <th>Course Image</th>
+              <th>Course Name</th>
+              <th>Instructor Name</th>
               <th>Price</th>
               <th>Duration</th>
               <th>Enrolled</th>
               <th>Seats</th>
               <th>Status</th>
-              <th>Cancel</th>
+              <th>Deny</th>
             </tr>
           </thead>
           <tbody>
@@ -60,9 +70,8 @@ const AllCourses = () => {
                 <td>{singleClass?.duration}</td>
                 <td>{singleClass?.enrolled}</td>
                 <td>{singleClass?.availableSeats}</td>
-                <td>{singleClass?.status === 'pending' ? <button className="btn btn-outline btn-secondary btn-sm">Approve</button> : singleClass?.status}</td>
-                <td><button className="btn btn-outline btn-secondary btn-sm">Deny</button></td>
-                
+                <td>{singleClass?.status === 'pending' ? <button onClick={()=>handleApprove(singleClass?._id)} className="btn btn-outline btn-secondary btn-sm"><FcCheckmark size={20}></FcCheckmark></button> : singleClass?.status}</td>
+                <td><button onClick={()=>handleDelete(singleClass?._id)} className="btn btn-outline btn-secondary btn-sm"><GiCancel size={20}></GiCancel></button></td>
               </tr>
             ))}
           </tbody>

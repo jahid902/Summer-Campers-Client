@@ -16,6 +16,7 @@ import AllUsers from "../DashboardComponents/AllUsers";
 import Payment from "../DashboardComponents/Payment";
 import EnrolledClasses from "../DashboardComponents/EnrolledClasses";
 import PaymentDetail from "../DashboardComponents/PaymentDetail";
+import AllCourses from "../DashboardComponents/AllCourses";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path:'allUsers',
         element: <AllUsers></AllUsers>
+      },
+      {
+        path:'allCourses',
+        element: <AllCourses></AllCourses>
       },
 
       // instructor routes 

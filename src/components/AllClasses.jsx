@@ -46,6 +46,7 @@ const AllClasses = () => {
           'success'
         )
       }
+      // todo --- add reducer to update enroll number by 1 (use patch method)
     })
     .catch(err =>{
       Swal.fire({

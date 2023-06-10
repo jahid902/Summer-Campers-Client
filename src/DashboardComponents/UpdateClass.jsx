@@ -9,8 +9,10 @@ const UpdateClass = () => {
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
-    const price = form.price.value;
-    const enrolled = form.enrolled.value;
+    const oldPrice = form.price.value;
+    const price = Math.round(parseFloat(oldPrice));
+    const oldEnrolled = form.enrolled.value;
+    const enrolled = Math.round(parseFloat(oldEnrolled))
     const duration = form.duration.value;
     const updatedClass = {
       price,

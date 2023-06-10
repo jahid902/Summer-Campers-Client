@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaHome, FaBook, FaBookMedical, FaBookOpen, FaDoorOpen, FaInfoCircle } from 'react-icons/fa';
 import { HiUserGroup} from 'react-icons/Hi';
+import { BsFillCollectionFill} from 'react-icons/Bs';
 import { Helmet } from "react-helmet";
 
 
@@ -68,6 +69,9 @@ const Dashboard = () => {
             </li>
             <li>
               <Link to="/dashboard/allUsers"><HiUserGroup size={24}></HiUserGroup>All User's</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/allCourses"><BsFillCollectionFill size={24}></BsFillCollectionFill>All Course's</Link>
             </li>
             </>
           }

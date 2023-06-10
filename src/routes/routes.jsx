@@ -14,6 +14,8 @@ import UpdateClass from "../DashboardComponents/UpdateClass";
 import StudentClasses from "../DashboardComponents/StudentClasses";
 import AllUsers from "../DashboardComponents/AllUsers";
 import Payment from "../DashboardComponents/Payment";
+import EnrolledClasses from "../DashboardComponents/EnrolledClasses";
+import PaymentDetail from "../DashboardComponents/PaymentDetail";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
       {
         path: 'payment/:id',
         element: <Payment></Payment>
+      },
+      {
+        path: 'enrolled',
+        element: <EnrolledClasses></EnrolledClasses>
+      },
+      {
+        path: 'paymentHistory',
+        element: <PaymentDetail></PaymentDetail>
       },
 
       // admin routes

@@ -54,6 +54,12 @@ const Dashboard = () => {
             <li>
               <Link to="/dashboard/studentClasses"><HiUserGroup size={24}></HiUserGroup>Student Classes</Link>
             </li>
+            <li>
+              <Link to="/dashboard/enrolled"><HiUserGroup size={24}></HiUserGroup>Enrolled Classes</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/paymentHistory"><HiUserGroup size={24}></HiUserGroup>Payment Info</Link>
+            </li>
             </>
           }
           { role === "admin" &&

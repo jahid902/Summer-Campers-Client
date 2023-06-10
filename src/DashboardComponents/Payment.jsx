@@ -25,7 +25,7 @@ const Payment = () => {
     return (
         <>
         <Title 
-        title="Make Payment !!" 
+        title="Make Payment $" 
         text="Make payment to successfully enroll for the class."
         subText=""
         colorText=""

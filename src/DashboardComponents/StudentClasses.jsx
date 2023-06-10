@@ -76,7 +76,7 @@ const StudentClasses = () => {
                 <th>{i+1}</th>
                 <td>{singleClass?.name}</td>
                 <td>{singleClass?.instructor}</td>
-                <td>{singleClass?.price}</td>
+                <td>{singleClass?.price} $</td>
                 <td>{singleClass?.duration}</td>
                 <td>{singleClass?.enrolled}</td>
                 <td>{singleClass?.availableSeats}</td>

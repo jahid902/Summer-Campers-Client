@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,6 +15,8 @@ const CheckoutForm = ({classInfo}) => {
     const {user} = useContext(AuthContext)
     const [showError, setShowError] = useState('')
     const [clientSecret, setClientSecret] = useState('');
+
+    const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -108,6 +111,7 @@ const CheckoutForm = ({classInfo}) => {
                         timer: 1500
                       })
                     //   todo add navigate
+                    navigate('/dashboard/enrolled') 
                 }
               })
 

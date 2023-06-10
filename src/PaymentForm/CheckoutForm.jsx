@@ -3,6 +3,7 @@ import './CheckoutForm.css'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 
 
@@ -82,7 +83,33 @@ const CheckoutForm = ({classInfo}) => {
       } else {
         console.log('[paymentIntent]', paymentIntent);
         if(paymentIntent.status === 'succeeded'){
-            
+            const classPaymentInfo = {
+                ...classInfo,
+                transactionId: paymentIntent.id,
+                date: new Date()
+              }
+
+              fetch(`${import.meta.env.VITE_api_url}/enrolledClass`,{
+                method: 'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(classPaymentInfo)
+              })
+              .then(res=> res.json())
+              .then(info=> {
+                console.log(info)
+                if(info.insertedId){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Payment successful',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                    //   todo add navigate
+                }
+              })
 
         }
 

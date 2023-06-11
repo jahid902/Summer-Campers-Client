@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -7,9 +7,11 @@ import lottieSignIn from "../assets/117764-sign-up.json";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin";
+import { FaEye } from 'react-icons/fa';
 
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || "/signIn";
@@ -73,7 +75,7 @@ const SignIn = () => {
                   <span className="text-red-600">Email is required</span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text text-lg font-bold text-pink-400">
                     Password
@@ -84,11 +86,12 @@ const SignIn = () => {
                     required: true,
                     minLength: 6,
                   })}
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="Type your password"
                   className="input input-bordered"
                 />
+                <FaEye onClick={()=>setShow(!show)} size={20} className="cursor-pointer absolute top-14 right-5"></FaEye>
                 {errors.password?.type === "required" && (
                   <p className="text-red-600">Password is required</p>
                 )}

@@ -7,9 +7,13 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 import SocialLogin from "../Shared/SocialLogin";
+import { FaEye } from 'react-icons/fa';
+import { useState } from "react";
 
 const SignUp = () => {
   const { signUpUser, profileUpdate, logOut } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
+  const [confirmShow, setConfirmShow] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -159,7 +163,7 @@ const SignUp = () => {
                   <span className="text-red-600">Image is required</span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text text-lg font-bold text-pink-400">
                     Password
@@ -172,11 +176,12 @@ const SignUp = () => {
                     pattern:
                       /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/,
                   })}
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
+                <FaEye onClick={()=>setShow(!show)} size={20} className="cursor-pointer absolute top-14 right-5"></FaEye>
                 {errors.password?.type === "required" && (
                   <p className="text-red-600">Password is required</p>
                 )}
@@ -191,7 +196,7 @@ const SignUp = () => {
                 )}
               </div>
 
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text text-lg font-bold text-pink-400">
                     Confirm Password
@@ -202,11 +207,12 @@ const SignUp = () => {
                     required: true,
                     minLength: 6,
                   })}
-                  type="password"
+                  type={confirmShow ? "text" : "password"}
                   name="recheck"
                   placeholder="Retype your password"
                   className="input input-bordered"
                 />
+                <FaEye onClick={()=>setConfirmShow(!confirmShow)} size={20} className="cursor-pointer absolute top-14 right-5"></FaEye>
                 {errors.recheck?.type === "minLength" && (
                   <p className="text-red-600">Password must be 6 characters</p>
                 )}

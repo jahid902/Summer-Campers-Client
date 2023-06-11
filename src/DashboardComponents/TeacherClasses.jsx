@@ -47,7 +47,7 @@ const TeacherClasses = () => {
                 <td>{singleClass?.status}</td>
                 <td>{singleClass?.enrolled}</td>
                 <td>{singleClass?.price}</td>
-                <td>{singleClass?.feedback ? singleClass?.feedback : "In Review"}</td>
+                <td>{singleClass?.feedback ? singleClass?.feedback : "Not given"}</td>
                 <td><Link to={`/dashboard/updateClass/${singleClass?._id}`}><button className="btn btn-sm mt-1 btn-secondary btn-outline">Edit</button></Link></td>
               </tr>
             ))}

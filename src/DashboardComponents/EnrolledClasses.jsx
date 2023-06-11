@@ -36,6 +36,7 @@ const EnrolledClasses = () => {
               <th>Instructor</th>
               <th>Price</th>
               <th>Duration</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +48,7 @@ const EnrolledClasses = () => {
                 <td>{singleClass?.instructor}</td>
                 <td>{singleClass?.price} $</td>
                 <td>{singleClass?.duration}</td>
+                <td>Paid</td>
               </tr>
             ))}
           </tbody>

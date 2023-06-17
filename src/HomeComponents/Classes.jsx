@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import Title from "../Shared/Title";
 import { Link } from "react-router-dom";
 
-
 const Classes = () => {
   const [classes, setClasses] = useState([]);
 
@@ -20,7 +19,6 @@ const Classes = () => {
 
   return (
     <>
-      
       <div className="mt-24 md:mt-36">
         <div className="w-11/12 mx-auto">
           <Title
@@ -58,14 +56,14 @@ const Classes = () => {
           {classes.map((sub) => (
             <SwiperSlide key={sub._id}>
               <img className="h-[50vh] rounded-md" src={sub?.image} alt="" />
-              <Link to="/allClass">
-                <button className="btn btn-outline btn-secondary flex mx-auto mt-4">
-                  {sub.name}
-                </button>
-              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
+        <Link to="/allClass">
+          <button className="btn btn-outline btn-secondary flex mx-auto mt-4">
+            go to Classes
+          </button>
+        </Link>
       </div>
     </>
   );

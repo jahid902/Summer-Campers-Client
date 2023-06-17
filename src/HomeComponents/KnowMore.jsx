@@ -10,7 +10,7 @@ const KnowMore = () => {
       <div className="w-full md:w-11/12 mx-auto mt-20 md:mt-32">
           <Title
             title="Let's clear some confusion !!"
-            text="Here you can Email us for any queries."
+            text="Worry not !! You can Email us for any queries."
             subText=""
             colorText=""
           ></Title>

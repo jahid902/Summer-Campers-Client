@@ -6,6 +6,7 @@ import Classes from "../HomeComponents/Classes";
 import Teachers from "../HomeComponents/Teachers";
 import KnowMore from "../HomeComponents/KnowMore";
 import Feedback from "../HomeComponents/Feedback";
+import Service from "../HomeComponents/Service";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Teachers></Teachers>
       <KnowMore></KnowMore>
       <Feedback></Feedback>
+      <Service></Service>
     </>
   );
 };

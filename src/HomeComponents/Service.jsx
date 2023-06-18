@@ -13,7 +13,7 @@ const Service = () => {
         ></Title>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-10 md:gap-4 justify-center items-center  bg-white p-8 ">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-4 justify-center items-center   p-8 ">
       <div className="text-center flex flex-col items-center w-full">
           <img src="/responsible.png" className="w-20 h-20" alt="" />
           <h1 className="text-pink-500 font-bold text-lg">Responsibility</h1>

@@ -28,7 +28,7 @@ const Feedback = () => {
           className="mySwiper w-full md:w-11/12"
         >
           <SwiperSlide>
-            <div className="flex flex-col text-center items-center space-y-4">
+            <div className="flex flex-col p-6 text-center items-center space-y-4">
               <img
                 className="w-16 h-16  rounded-full"
                 src="https://i.ibb.co/r3Src7R/portrait-white-man-isolated.jpg"
@@ -46,7 +46,7 @@ const Feedback = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col text-center items-center space-y-4">
+            <div className="flex flex-col p-6 text-center items-center space-y-4">
               <img
                 className="w-16 h-16  rounded-full"
                 src="https://i.ibb.co/HTrTY6J/close-up-portrait-curly-handsome-european-male.jpg"
@@ -65,7 +65,7 @@ const Feedback = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col text-center items-center space-y-4">
+            <div className="flex flex-col p-6 text-center items-center space-y-4">
               <img
                 className="w-16 h-16  rounded-full"
                 src="https://i.ibb.co/ZgqdDFV/close-up-portrait-young-bearded-man-white-shirt-jacket-posing-camera-with-broad-smile-isolated-gray.jpg"
@@ -85,7 +85,7 @@ const Feedback = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col text-center items-center space-y-4">
+            <div className="flex flex-col p-6 text-center items-center space-y-4">
               <img
                 className="w-16 h-16  rounded-full"
                 src="https://i.ibb.co/zH6sn6K/portrait-smiling-blonde-woman.jpg"
@@ -106,7 +106,7 @@ const Feedback = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col text-center items-center space-y-4">
+            <div className="flex flex-col p-6 text-center items-center space-y-4">
               <img
                 className="w-16 h-16  rounded-full"
                 src="https://i.ibb.co/Jpt9dmd/porait-cute-boy-cafe.jpg"

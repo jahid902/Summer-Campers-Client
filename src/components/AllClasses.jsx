@@ -46,7 +46,7 @@ const AllClasses = () => {
           'success'
         )
       }
-      // todo --- add reducer to update enroll number by 1 (use patch method)
+     
     })
     .catch(err =>{
       Swal.fire({
@@ -63,7 +63,7 @@ const AllClasses = () => {
     <Helmet>
       <title>Summer Campers || All Classes</title>
     </Helmet>
-      <div className="w-full md:w-11/12 md:mx-auto my-8">
+      <div className="w-full md:w-11/12 md:mx-auto mt-36 md:mt-36 lg:mt-8 mb-8">
         <Title
           title="All of the classes we provide"
           text="Join our exciting sports summer camps and unleash your passion for athletics! Whether you're a fan of cricket, football, basketball, tennis, or swimming, we have the perfect camp for you. "
@@ -72,7 +72,7 @@ const AllClasses = () => {
         ></Title>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 w-full md:w-11/12 mx-auto">
+      <div className="grid mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 w-full md:w-11/12 ">
         {allClass.map((sub) => (
           sub?.status == 'approved' && <div
           key={sub._id}

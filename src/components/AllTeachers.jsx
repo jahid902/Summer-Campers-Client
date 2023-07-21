@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 const AllTeachers = () => {
   const [teachers, setTeachers] = useState([]);
 
-  // used axios to fetch data
+  
   
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_api_url}/allTeachers`).then((data) => {
@@ -19,7 +19,7 @@ const AllTeachers = () => {
     <Helmet>
       <title>Summer Campers || Instructors</title>
     </Helmet>
-      <div className="w-full md:w-11/12 md:mx-auto my-8">
+      <div className="w-full md:w-11/12 md:mx-auto mt-36 md:mt-36 lg:mt-8 mb-8">
         <Title
           title="All of the Instructors we Have"
           text="Instructors at summer camps are extraordinary guides who will take you on incredible journeys of discovery."

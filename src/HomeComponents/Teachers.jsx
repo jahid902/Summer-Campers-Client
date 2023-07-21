@@ -9,7 +9,7 @@ AOS.init();
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
 
-  //used axios to fetch data
+ 
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_api_url}/teachers`).then((data) => {

@@ -41,8 +41,6 @@ const NavBar = () => {
           Classes
         </Link>
       </li>
-
-      {/* todo user && true the access to dashboard */}
       { user &&
         <li>
           <Link className="font-semibold text-base" to="/dashboard">
